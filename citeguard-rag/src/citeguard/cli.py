@@ -1,8 +1,17 @@
 """Command-line interface."""
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
+
+# Force transformers to be torch-only. Some Windows environments ship a
+# TensorFlow build pinned to NumPy 1.x; importing it under NumPy 2.x crashes
+# the whole process. We never use TF or Flax, so disable them up front.
+os.environ.setdefault("TRANSFORMERS_NO_ADVISORY_WARNINGS", "1")
+os.environ.setdefault("USE_TF", "0")
+os.environ.setdefault("USE_FLAX", "0")
+os.environ.setdefault("TRANSFORMERS_NO_TF", "1")
 
 import click
 

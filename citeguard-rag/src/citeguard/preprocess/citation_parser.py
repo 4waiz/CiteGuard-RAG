@@ -10,7 +10,7 @@ import re
 from dataclasses import dataclass
 
 
-_DEFAULT_PATTERNS = [r"\[([^\]\[]+)\]"]
+_DEFAULT_PATTERNS = [r"\[([^\]\[]*)\]"]
 _NUMERIC_RE = re.compile(r"^\d+$")
 
 

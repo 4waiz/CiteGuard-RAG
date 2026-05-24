@@ -15,6 +15,9 @@ def clean_text(text: str) -> str:
     return WHITESPACE_RE.sub(" ", text).strip()
 
 
+_SPACE_BEFORE_PUNCT = re.compile(r"\s+([.,;:!?])")
+
+
 def strip_citation_markers(text: str) -> str:
     """Remove bracketed citation markers from the text and tidy whitespace.
 
@@ -23,4 +26,5 @@ def strip_citation_markers(text: str) -> str:
     if not text:
         return ""
     stripped = CITATION_RE.sub("", text)
+    stripped = _SPACE_BEFORE_PUNCT.sub(r"\1", stripped)
     return clean_text(stripped)

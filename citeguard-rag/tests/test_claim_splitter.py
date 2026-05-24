@@ -40,5 +40,6 @@ def test_handles_empty_answer():
 
 
 def test_claim_ids_are_stable_and_sequential():
-    claims = split_into_claims("ex_stable", "One. Two. Three.")
+    text = "Sentence one is here. Sentence two follows. Sentence three concludes."
+    claims = split_into_claims("ex_stable", text)
     assert [c.claim_id for c in claims] == ["ex_stable_c001", "ex_stable_c002", "ex_stable_c003"]

@@ -34,7 +34,9 @@ ANTONYMS = {
 
 
 def _drop_citations(answer: str) -> str:
-    return re.sub(r"\s+", " ", CITATION_RE.sub("", answer)).strip()
+    out = CITATION_RE.sub("", answer)
+    out = re.sub(r"\s+([.,;:!?])", r"\1", out)  # collapse "Canberra ." -> "Canberra."
+    return re.sub(r"\s+", " ", out).strip()
 
 
 def _swap_citations(answer: str, doc_ids: list[str], rng: random.Random) -> str:
