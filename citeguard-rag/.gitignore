@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+
+# Model + HF cache (can be huge)
+.cache/
+*.bin
+*.safetensors
+
+# Pipeline outputs — keep the directory structure (.gitkeep) but not the products.
+outputs/tables/*.csv
+outputs/tables/*.json
+outputs/figures/*.png
+outputs/evidence_cards/*.jsonl
+outputs/reports/*.html
+outputs/default/
+outputs/ablation_*/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
