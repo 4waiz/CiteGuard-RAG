@@ -40,7 +40,7 @@ citeguard-rag/
   data/samples/            # synthetic JSONL examples (clearly labeled)
   outputs/                 # CSV, JSONL, PNG, HTML report outputs
   src/citeguard/           # library code
-  app/streamlit_app.py     # dashboard
+  dashboard/streamlit_app.py     # dashboard
   scripts/                 # CLI helpers (benchmark, perturbations, plots)
   tests/                   # pytest suite
   notebooks/               # error analysis notebook
@@ -79,7 +79,7 @@ python -m citeguard.cli evaluate \
 python scripts/make_figures.py
 
 # 4) launch the dashboard
-streamlit run app/streamlit_app.py
+streamlit run dashboard/streamlit_app.py
 ```
 
 ## Input format
@@ -117,7 +117,7 @@ them from the original authors and convert before loading.
 ## Running the dashboard
 
 ```bash
-streamlit run app/streamlit_app.py
+streamlit run dashboard/streamlit_app.py
 ```
 
 Pages:

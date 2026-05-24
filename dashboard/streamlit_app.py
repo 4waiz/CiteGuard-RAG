@@ -5,7 +5,7 @@ Loads ``outputs/tables/claim_eval.csv`` and
 predicted labels, filter by label, and inspect per-claim evidence cards.
 
 Run with:
-    streamlit run app/streamlit_app.py
+    streamlit run dashboard/streamlit_app.py
 """
 from __future__ import annotations
 
