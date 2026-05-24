@@ -8,7 +8,7 @@ sdk_version: "1.39.0"
 app_file: app.py
 pinned: false
 license: mit
-short_description: Claim-level diagnosis for retrieval-augmented generation outputs.
+short_description: Claim-level diagnosis for RAG outputs.
 ---
 
 # CiteGuard-RAG
