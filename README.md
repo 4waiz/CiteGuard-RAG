@@ -1,3 +1,16 @@
+---
+title: CiteGuard-RAG
+emoji: 🛡️
+colorFrom: blue
+colorTo: indigo
+sdk: streamlit
+sdk_version: "1.39.0"
+app_file: app.py
+pinned: false
+license: mit
+short_description: Claim-level diagnosis for retrieval-augmented generation outputs.
+---
+
 # CiteGuard-RAG
 
 A lightweight, reproducible toolkit for **claim-level diagnosis** of

@@ -16,9 +16,22 @@ import pandas as pd
 import streamlit as st
 
 
-DEFAULT_CLAIM_EVAL = Path("outputs/tables/claim_eval.csv")
-DEFAULT_CARDS = Path("outputs/evidence_cards/evidence_cards.jsonl")
-DEFAULT_SUMMARY = Path("outputs/tables/example_summary.csv")
+def _pick(*candidates: str) -> Path:
+    """Return the first candidate that exists, else the first candidate.
+
+    Lets us prefer fresh ``outputs/`` produced by a local run, and fall back
+    to the committed ``sample_outputs/`` so the Hugging Face Space dashboard
+    has data the moment it boots.
+    """
+    for c in candidates:
+        if Path(c).exists():
+            return Path(c)
+    return Path(candidates[0])
+
+
+DEFAULT_CLAIM_EVAL = _pick("outputs/tables/claim_eval.csv", "sample_outputs/tables/claim_eval.csv")
+DEFAULT_CARDS = _pick("outputs/evidence_cards/evidence_cards.jsonl", "sample_outputs/evidence_cards/evidence_cards.jsonl")
+DEFAULT_SUMMARY = _pick("outputs/tables/example_summary.csv", "sample_outputs/tables/example_summary.csv")
 
 
 @st.cache_data
