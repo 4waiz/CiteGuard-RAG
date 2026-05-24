@@ -1,0 +1,46 @@
+# Ablation: NLI only. Semantic similarity disabled for support scoring.
+run_name: "ablation_nli_only"
+
+models:
+  sbert: "sentence-transformers/all-MiniLM-L6-v2"
+  nli: "cross-encoder/nli-deberta-v3-base"
+  device: "auto"
+
+retrieval:
+  top_k: 5
+  use_bm25: true
+  use_dense: false
+
+evaluators:
+  semantic:
+    enabled: false
+  nli:
+    enabled: true
+    max_evidence_chars: 1500
+  bm25:
+    enabled: true
+  llm_judge:
+    enabled: false
+    model: null
+
+thresholds:
+  entail_support: 0.55
+  contradict: 0.55
+  semantic_related: 0.55
+  semantic_strong: 0.70
+  unsupported_floor: 0.30
+
+claim_splitter:
+  min_chars: 5
+  strip_citations_for_embedding: true
+
+citation_parser:
+  patterns:
+    - "\\[([^\\]]+)\\]"
+  numeric_prefix: "doc"
+
+output:
+  tables_dir: "outputs/tables"
+  figures_dir: "outputs/figures"
+  cards_dir: "outputs/evidence_cards"
+  reports_dir: "outputs/reports"
